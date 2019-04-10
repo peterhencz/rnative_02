@@ -5,11 +5,24 @@ import UserScreen from "./src/Users";
 
 const AppNavigator = createStackNavigator(
   {
-    Home: { screen: HomeScreen },
+    Home: {
+      screen: HomeScreen,
+      navigationOptions: ({ navigation }) => ({
+        title: "home",
+      }),
+    },
     Users: { screen: UserScreen },
   },
   {
     initialRouteName: "Home",
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#f4baba",
+      },
+      headerTintColor: "white",
+    },
+    mode: "card",
+    headerMode: "float",
   }
 );
 

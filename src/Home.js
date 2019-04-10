@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import { Text, View, Button } from "react-native";
 
 class HomeScreen extends Component {
+  // static navigationOptions = {
+  //   title: "Home",
+  //   headerStyle: {
+  //     backgroundColor: "#f4baba",
+  //   },
+  //   headerTintColor: "white",
+  // };
   render() {
     return (
       <View
@@ -14,8 +21,15 @@ class HomeScreen extends Component {
         <Text>home</Text>
         <Button
           title="user"
-          onPress={() => this.props.navigation.navigate("Users")}
+          onPress={() =>
+            this.props.navigation.navigate("Users", {
+              //  userId: 12,
+              userName: "cica",
+              userLastName: "kis",
+            })
+          }
         />
+        <Text>{this.props.navigation.getParam("message", "n/a")}</Text>
       </View>
     );
   }
