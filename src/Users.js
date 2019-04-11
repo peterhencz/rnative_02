@@ -3,7 +3,8 @@ import { Text, View, Button } from "react-native";
 
 class UserScreen extends Component {
   static navigationOptions = {
-    title: "UserScreen",
+    draweLabel: "user",
+    drawerIcon: () => <Text>🧨</Text>,
   };
 
   render() {

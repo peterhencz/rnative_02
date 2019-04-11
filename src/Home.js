@@ -2,13 +2,18 @@ import React, { Component } from "react";
 import { Text, View, Button } from "react-native";
 
 class HomeScreen extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      headerRight: (
-        <Button color="#fff" title="🐱   " onPress={() => alert("miau")} />
-      ),
-    };
+  static navigationOptions = {
+    draweLabel: "home",
+    drawerIcon: () => <Text>🧶</Text>,
   };
+
+  // static navigationOptions = ({ navigation }) => {
+  //   return {
+  //     headerRight: (
+  //       <Button color="#fff" title="🐱   " onPress={() => alert("miau")} />
+  //     ),
+  //   };
+  // };
   render() {
     return (
       <View
@@ -20,6 +25,10 @@ class HomeScreen extends Component {
         }}>
         <Text>home</Text>
         <Button
+          title="open side drawer"
+          onPress={() => this.props.navigation.openDrawer()}
+        />
+        {/* <Button
           title="user"
           onPress={() =>
             this.props.navigation.navigate("Users", {
@@ -28,7 +37,7 @@ class HomeScreen extends Component {
               userLastName: "kis",
             })
           }
-        />
+        /> */}
         <Text>{this.props.navigation.getParam("message", "n/a")}</Text>
       </View>
     );
