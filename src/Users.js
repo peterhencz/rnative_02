@@ -4,10 +4,6 @@ import { Text, View, Button } from "react-native";
 class UserScreen extends Component {
   static navigationOptions = {
     title: "UserScreen",
-    headerStyle: {
-      backgroundColor: "#f4baba",
-    },
-    headerTintColor: "white",
   };
 
   render() {

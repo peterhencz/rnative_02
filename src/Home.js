@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { Text, View, Button } from "react-native";
 
 class HomeScreen extends Component {
-  // static navigationOptions = {
-  //   title: "Home",
-  //   headerStyle: {
-  //     backgroundColor: "#f4baba",
-  //   },
-  //   headerTintColor: "white",
-  // };
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerRight: (
+        <Button color="#fff" title="🐱   " onPress={() => alert("miau")} />
+      ),
+    };
+  };
   render() {
     return (
       <View
@@ -16,7 +16,7 @@ class HomeScreen extends Component {
           flex: 1,
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#white",
+          backgroundColor: "white",
         }}>
         <Text>home</Text>
         <Button
