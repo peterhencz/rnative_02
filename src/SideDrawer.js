@@ -1,24 +1,56 @@
 import React, { Component } from "react";
-import { ScrollView, Text, View, StyleSheet, Image } from "react-native";
-import Logo from "./assets/logo.png";
+import { ScrollView, Text, View, StyleSheet } from "react-native";
+import { NavigationActions } from "react-navigation";
 import LogoTitle from "./Logo";
 
 class SideDrawer extends Component {
+  navigateToScreen = route => () => {
+    const navigateAction = NavigationActions.navigate({
+      routeName: route,
+    });
+    this.props.navigation.dispatch(navigateAction);
+  };
+
   render() {
     return (
       <View style={styles.container}>
+        <View style={styles.navImageContainer}>
+          <LogoTitle />
+        </View>
         <ScrollView>
-          <View style={styles.navImageContainer}>
-            <LogoTitle />
-          </View>
           <Text style={styles.sectionHeadingStyle}>Yolo</Text>
           <Text style={styles.navSectionStyle}>
-            <Text style={styles.navItemStyle} onPress={() => alert("home")}>
+            <Text
+              style={styles.navItemStyle}
+              onPress={this.navigateToScreen("Home")}>
               Home
             </Text>
           </Text>
+          <Text style={styles.navSectionStyle}>
+            <Text
+              style={styles.navItemStyle}
+              onPress={this.navigateToScreen("Users")}>
+              Users
+            </Text>
+          </Text>
+          <Text style={styles.navSectionStyle}>
+            <Text
+              style={styles.navItemStyle}
+              onPress={this.navigateToScreen("Home")}>
+              Yoloka
+            </Text>
+          </Text>
+          <Text style={styles.navSectionStyle}>
+            <Text
+              style={styles.navItemStyle}
+              onPress={this.navigateToScreen("Users")}>
+              Cica
+            </Text>
+          </Text>
         </ScrollView>
-        <Text>hello</Text>
+        <View style={styles.footerContainer}>
+          <Text>hello</Text>
+        </View>
       </View>
     );
   }
@@ -42,12 +74,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   navSectionStyle: {
+    padding: 10,
     backgroundColor: "#E4CCCC",
   },
   navItemStyle: {
-    padding: 20,
-    margin: 10,
     color: "white",
+  },
+  footerContainer: {
+    padding: 20,
   },
 });
 

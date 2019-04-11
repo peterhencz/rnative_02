@@ -3,7 +3,7 @@ import { Text, View, Button } from "react-native";
 
 class HomeScreen extends Component {
   static navigationOptions = {
-    draweLabel: "home",
+    draweLabel: "Home",
     drawerIcon: () => <Text>🧶</Text>,
   };
 
